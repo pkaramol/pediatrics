@@ -1,0 +1,7 @@
+<h1>This is the List View Page</h1>
+
+{% for blogpost in blogpost_list %}
+        <a href="{% url 'blogpost-detail' blogpost.id %}">{{blogpost.title}}</a>
+        <br />
+        <br />
+{% endfor %}

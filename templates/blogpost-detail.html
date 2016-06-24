@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<h2>{{blogpost.title}}</h2>
+<div>
+  <div>
+      <img src='{% static "img/test.jpg" %}'/>
+      <br />
+    {{blogpost.content | safe}}
+  </div>
+  <div>
+     <br />
+    <a href="{% url 'site-home' %}">Blog Home</a>
+    <form method="POST" action="{% url 'blogpost-delete' blogpost.id %}">
+       {% csrf_token %}<input type="submit" value="Delete">
+    </form>
+    <a href="{% url 'blogpost-update' blogpost.id %}">Update</a>
+  </div>
+</div>

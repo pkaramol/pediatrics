@@ -1,0 +1,11 @@
+<h1>Update "{{blogpost.title}}""</h1>
+<form method="post">
+  <div>
+    {% csrf_token %}
+    {{ form.as_p }}
+  </div>
+  <div>
+    <a href="{{ blogpost.get_absolute_url }}">Cancel</a>
+    <input class="btn" type="submit" value="Update" />
+  </div>
+</form>
