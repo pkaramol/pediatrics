@@ -15,17 +15,20 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from .views import (BlogHomeView, BlogPostDetailView, BlogHomeListView,
+from .views import (HomeView, AboutView, BlogPostDetailView, BlogHomeListView,
 BlogPostCreateView, BlogPostUpdateView, BlogPostDeleteView)
 
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^blogposts/', BlogHomeListView.as_view(), name='blogpost-list'),
-    url(r'^$', BlogHomeView.as_view(), name='site-home'),
-    url(r'^blogpost/(?P<pk>\d+)/$', BlogPostDetailView.as_view(), name='blogpost-detail'),
-    url(r'^create/$', BlogPostCreateView.as_view(), name="blogpost-create"),
-    url(r'^update/(?P<pk>\d+)/$', BlogPostUpdateView.as_view(), name="blogpost-update"),
-    url(r'^delete/(?P<pk>\d+)/$', BlogPostDeleteView.as_view(), name="blogpost-delete"),
+    url(r'^$', HomeView.as_view(), name='site-home'),
+    url(r'^about/$', AboutView.as_view(), name='site-about'),
+
+
+    # url(r'^blogposts/', BlogHomeListView.as_view(), name='blogpost-list'),
+    # url(r'^blogpost/(?P<pk>\d+)/$', BlogPostDetailView.as_view(), name='blogpost-detail'),
+    # url(r'^create/$', BlogPostCreateView.as_view(), name="blogpost-create"),
+    # url(r'^update/(?P<pk>\d+)/$', BlogPostUpdateView.as_view(), name="blogpost-update"),
+    # url(r'^delete/(?P<pk>\d+)/$', BlogPostDeleteView.as_view(), name="blogpost-delete"),
 
 ]

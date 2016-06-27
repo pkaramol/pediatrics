@@ -8,15 +8,12 @@ from the_blog.models import BlogPost
 from the_blog.forms import BlogPostForm
 
 
-class BlogHomeView(TemplateView):
-    template_name = "index.html"
+class HomeView(TemplateView):
+    template_name = "home.html"
     # model = BlogPost
 
-    def get_context_data(self, **kwargs):
-        context = super(BlogHomeView, self).get_context_data(**kwargs)
-        context["title"] = "Πάμε μωρή Πανάθα!"
-        return context
-
+class AboutView(TemplateView):
+    template_name = "about.html"
 
 class BlogPostDetailView(DetailView):
     template_name = "blogpost-detail.html"
