@@ -15,14 +15,15 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from .views import (HomeView, AboutView, BlogPostDetailView, BlogHomeListView,
-BlogPostCreateView, BlogPostUpdateView, BlogPostDeleteView)
+from .views import (HomeView, AboutView, BlogListView, ContactView)
 
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', HomeView.as_view(), name='site-home'),
     url(r'^about/$', AboutView.as_view(), name='site-about'),
+    url(r'^contact/$', ContactView.as_view(), name='site-contact'),
+    url(r'^blog/$', BlogListView.as_view(), name='blog'),
 
 
     # url(r'^blogposts/', BlogHomeListView.as_view(), name='blogpost-list'),
