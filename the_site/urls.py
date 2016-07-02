@@ -15,7 +15,8 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from .views import (HomeView, AboutView, BlogListView, ContactView)
+from .views import (HomeView, AboutView, BlogListView, BlogPostCreateView,
+ContactView)
 
 
 urlpatterns = [
@@ -24,6 +25,8 @@ urlpatterns = [
     url(r'^about/$', AboutView.as_view(), name='site-about'),
     url(r'^contact/$', ContactView.as_view(), name='site-contact'),
     url(r'^blog/$', BlogListView.as_view(), name='blog'),
+    url(r'^blogpost-create/$', BlogPostCreateView.as_view(),
+        name='blogpost-create'),
 
 
     # url(r'^blogposts/', BlogHomeListView.as_view(), name='blogpost-list'),

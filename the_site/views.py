@@ -23,22 +23,23 @@ class BlogListView(ListView):
 class ContactView(TemplateView):
     template_name = "contact.html"
 
+class BlogPostCreateView(CreateView):
+    template_name = "blogpost-create.html"
+    form_class = BlogPostForm
+
+    def form_valid(self, form):
+        """
+        Assign the author to the request.user
+        """
+        form.instance.author = self.request.user
+        return super(BlogPostCreateView, self).form_valid(form)
 
 # class BlogPostDetailView(DetailView):
 #     template_name = "blogpost-detail.html"
 #     model = BlogPost
 #
 #
-# class BlogPostCreateView(CreateView):
-#     template_name = "blogpost-create.html"
-#     form_class = BlogPostForm
-#
-#     def form_valid(self, form):
-#         """
-#         Assign the author to the request.user
-#         """
-#         form.instance.author = self.request.user
-#         return super(BlogPostCreateView, self).form_valid(form)
+
 #
 #
 # class BlogPostUpdateView(UpdateView):
