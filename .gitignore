@@ -1,4 +1,4 @@
-the_blog/__pycache__/*
-the_blog/__pycache__/*
 */__pycache__/*
 *.pyc
+the_blog/__pycache__/
+the_site/__pycache__/
