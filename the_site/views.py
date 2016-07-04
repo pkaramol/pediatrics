@@ -19,6 +19,8 @@ class AboutView(TemplateView):
 class BlogListView(ListView):
     template_name = "blog.html"
     model = BlogPost
+    paginate_by = 4
+    ordering = ["-created", "-updated"]
 
 class ContactView(TemplateView):
     template_name = "contact.html"
