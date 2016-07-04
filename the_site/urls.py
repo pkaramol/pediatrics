@@ -16,7 +16,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from .views import (HomeView, AboutView, BlogListView, BlogPostCreateView,
-ContactView)
+ContactView, BlogPostDetailView)
 
 
 urlpatterns = [
@@ -27,10 +27,10 @@ urlpatterns = [
     url(r'^blog/$', BlogListView.as_view(), name='blog'),
     url(r'^blogpost-create/$', BlogPostCreateView.as_view(),
         name='blogpost-create'),
+    url(r'^blogpost/(?P<pk>\d+)/$', BlogPostDetailView.as_view(), name='blogpost-detail'),
 
 
     # url(r'^blogposts/', BlogHomeListView.as_view(), name='blogpost-list'),
-    # url(r'^blogpost/(?P<pk>\d+)/$', BlogPostDetailView.as_view(), name='blogpost-detail'),
     # url(r'^create/$', BlogPostCreateView.as_view(), name="blogpost-create"),
     # url(r'^update/(?P<pk>\d+)/$', BlogPostUpdateView.as_view(), name="blogpost-update"),
     # url(r'^delete/(?P<pk>\d+)/$', BlogPostDeleteView.as_view(), name="blogpost-delete"),

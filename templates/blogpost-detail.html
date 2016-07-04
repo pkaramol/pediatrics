@@ -1,17 +1,44 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
-<h2>{{blogpost.title}}</h2>
-<div>
-  <div>
-      <img src='{% static "img/ test.jpg" %}'/>
-      <br />
-    {{blogpost.content | safe}}
-  </div>
-  <div>
-     <br />
-    <a href="{% url 'site-home' %}">Blog Home</a>
-    <form method="POST" action="{% url 'blogpost-delete' blogpost.id %}">
-       {% csrf_token %}<input type="submit" value="Delete">
-    </form>
-    <a href="{% url 'blogpost-update' blogpost.id %}">Update</a>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    {% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <form action="{% url 'blogpost-create' %}">
+                        <input type="submit" class="intro-text text-center btn btn-default center-block" value="Δημιουργια νεας αναρτησης">
+                    </form>
+                    <hr>
+                </div>
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        <strong>blog</strong>
+                    </h2>
+                    <hr>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <img class="img-responsive img-border img-list" src="{% static 'img/slide-1.jpg' %}" alt="">
+                    <h2>{{ blogpost.title }}
+                        <br>
+                        <small>October 13, 2013</small>
+                    </h2>
+                    <p class=text-justified> {{ blogpost.content}} </p>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+    {% endblock content %}
+
+</body>
+
+</html>

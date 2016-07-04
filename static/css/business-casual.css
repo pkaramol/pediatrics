@@ -190,3 +190,14 @@ footer p {
         clear: both;
     }
 }
+
+
+/***** Customizations *****/
+.img-list {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.text-justified {
+    text-align: justify;
+}

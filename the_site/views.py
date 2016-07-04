@@ -34,14 +34,11 @@ class BlogPostCreateView(CreateView):
         form.instance.author = self.request.user
         return super(BlogPostCreateView, self).form_valid(form)
 
-# class BlogPostDetailView(DetailView):
-#     template_name = "blogpost-detail.html"
-#     model = BlogPost
-#
-#
+class BlogPostDetailView(DetailView):
+    template_name = "blogpost-detail.html"
+    model = BlogPost
 
-#
-#
+
 # class BlogPostUpdateView(UpdateView):
 #     template_name = "blogpost-update.html"
 #     model = BlogPost
