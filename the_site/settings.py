@@ -38,6 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'ckeditor',
+    'ckeditor_uploader',
     'the_blog',
 )
 
@@ -107,10 +109,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
+CKEDITOR_UPLOAD_PATH = os.path.join(BASE_DIR, 'ckeditor_media')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'

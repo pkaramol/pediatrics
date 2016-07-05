@@ -6,7 +6,7 @@
 
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background: url('../img/bg.jpg') no-repeat center center fixed;
+    background: url('../img/bg4.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -68,7 +68,7 @@ hr {
 
 .brand-name {
     margin: 0;
-    font-size: 4em;
+    font-size: 3em;
 }
 
 .tagline-divider {
@@ -189,4 +189,19 @@ footer p {
         display: table;
         clear: both;
     }
+}
+
+
+/***** Customizations *****/
+.img-list {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.text-justified {
+    text-align: justify;
+}
+
+#create-box {
+    background-color: #C7D4D9;
 }
