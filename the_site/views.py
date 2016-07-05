@@ -3,6 +3,8 @@ from django.shortcuts import render
 from django.views.generic import (TemplateView, DetailView, ListView,
 CreateView, UpdateView, DeleteView)
 
+from braces.views import SuperuserRequiredMixin
+
 from the_blog.models import BlogPost
 
 from the_blog.forms import BlogPostForm
@@ -25,7 +27,7 @@ class BlogListView(ListView):
 class ContactView(TemplateView):
     template_name = "contact.html"
 
-class BlogPostCreateView(CreateView):
+class BlogPostCreateView(SuperuserRequiredMixin, CreateView):
     template_name = "blogpost-create.html"
     form_class = BlogPostForm
 

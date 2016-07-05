@@ -201,3 +201,7 @@ footer p {
 .text-justified {
     text-align: justify;
 }
+
+#create-box {
+    background-color: #C7D4D9;
+}
