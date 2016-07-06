@@ -80,12 +80,14 @@ WSGI_APPLICATION = 'the_site.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'annaplevri_db',
         'USER': 'django-user',
         'PASSWORD': 'commando13',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'OPTIONS': {
+          'autocommit': True,
+        },
     }
 }
 

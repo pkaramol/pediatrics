@@ -34,8 +34,10 @@ urlpatterns = [
 
     # url(r'^blogposts/', BlogHomeListView.as_view(), name='blogpost-list'),
     # url(r'^create/$', BlogPostCreateView.as_view(), name="blogpost-create"),
-    # url(r'^update/(?P<pk>\d+)/$', BlogPostUpdateView.as_view(), name="blogpost-update"),
-    # url(r'^delete/(?P<pk>\d+)/$', BlogPostDeleteView.as_view(), name="blogpost-delete"),
+    # url(r'^update/(?P<pk>\d+)/$', BlogPostUpdateView.as_view(),
+    # name="blogpost-update"),
+    # url(r'^delete/(?P<pk>\d+)/$', BlogPostDeleteView.as_view(),
+    # name="blogpost-delete"),
 
 ]
 

@@ -25,9 +25,6 @@
                 </div>
                 <div class="col-lg-12 text-center">
                     {% if blogpost.image %}
-                    <p>
-                        {{ blogpost.image }}
-                    </p>
                     <img class="img-responsive img-border img-list" src="{{ blogpost.image.url }}" alt="">
                     {% else %}
                     <img class="img-responsive img-border img-list" src="{% static 'img/default.jpg' %}" alt="">
