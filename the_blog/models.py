@@ -12,7 +12,7 @@ class BlogPost(models.Model):
     author = models.ForeignKey(User, default=1)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
-    image = models.FileField(blank=True, null=True, default='settings.MEDIA_ROOT/default.jpg')
+    blogimage = models.ImageField(blank=True, null=True, default='settings.MEDIA_ROOT/default.jpg')
 
     def get_absolute_url(self):
         return reverse('blogpost-detail', kwargs={'pk':self.id})
