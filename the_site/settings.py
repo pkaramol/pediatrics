@@ -122,3 +122,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
 CKEDITOR_UPLOAD_PATH = os.path.join(BASE_DIR, 'ckeditor_media')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'

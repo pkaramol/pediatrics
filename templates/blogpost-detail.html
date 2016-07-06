@@ -24,16 +24,12 @@
                     <hr>
                 </div>
                 <div class="col-lg-12 text-center">
-                    {% if blogpost.image %}
                     <img class="img-responsive img-border img-list" src="{{ blogpost.image.url }}" alt="">
-                    {% else %}
-                    <img class="img-responsive img-border img-list" src="{% static 'img/default.jpg' %}" alt="">
-                    {% endif %}
                     <h2>{{ blogpost.title }}
                         <br>
                         <small>October 13, 2013</small>
                     </h2>
-                    <p class=text-justified> {{ blogpost.content}} </p>
+                    <div class="text-justified"> {{ blogpost.content|safe}} </div>
                     <hr>
                 </div>
             </div>

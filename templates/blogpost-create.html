@@ -3,7 +3,8 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
 
 <div class="row">
     <div id=create-box class="box">
@@ -11,8 +12,8 @@
             <hr />
             <h1 class="intro-text text-center center-block">Δημιουργια νεας αναρτησης</h1>
             <hr>
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
+            <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                {{ form.media }}
                 {{ form | crispy }}
                 <input class="btn btn-default intro-text text-center center-block" type="submit" value="Create" />
             </form>
@@ -20,9 +21,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 
 {% endblock content %}
