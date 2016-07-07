@@ -35,10 +35,17 @@
                     <hr>
                 </div>
                 {% if request.user.is_superuser %}
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <hr>
                     <form action="{% url 'blogpost-update' blogpost.id %}">
                         <input type="submit" class="intro-text text-center btn btn-default center-block" value="Επεξεργασια Αρθρου">
+                    </form>
+                    <hr>
+                </div>
+                <div class="col-lg-6">
+                    <hr>
+                    <form action="{% url 'blogpost-delete' blogpost.id %}">
+                        <input type="submit" class="intro-text text-center btn btn-danger center-block" value="Διαγραφη Αρθρου">
                     </form>
                     <hr>
                 </div>

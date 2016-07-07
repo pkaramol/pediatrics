@@ -27,6 +27,7 @@ class BlogListView(ListView):
 class ContactView(TemplateView):
     template_name = "contact.html"
 
+
 class BlogPostCreateView(SuperuserRequiredMixin, CreateView):
     template_name = "blogpost-create.html"
     form_class = BlogPostForm
@@ -38,6 +39,7 @@ class BlogPostCreateView(SuperuserRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super(BlogPostCreateView, self).form_valid(form)
 
+
 class BlogPostDetailView(DetailView):
     template_name = "blogpost-detail.html"
     model = BlogPost
@@ -48,6 +50,8 @@ class BlogPostUpdateView(SuperuserRequiredMixin, UpdateView):
     model = BlogPost
     form_class = BlogPostForm
 
-# class BlogPostDeleteView(DeleteView):
-#     model = BlogPost
-#     success_url = reverse_lazy('site-home')
+
+class BlogPostDeleteView(DeleteView):
+    template_name = "blogpost_confirm_delete.html"
+    model = BlogPost
+    success_url = reverse_lazy('site-home')
