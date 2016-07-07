@@ -18,7 +18,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 from .views import (HomeView, AboutView, BlogListView, BlogPostCreateView,
-                    ContactView, BlogPostDetailView)
+                    ContactView, BlogPostDetailView, BlogPostUpdateView)
 
 
 urlpatterns = [
@@ -31,11 +31,13 @@ urlpatterns = [
         name='blogpost-create'),
     url(r'^blogpost/(?P<pk>\d+)/$', BlogPostDetailView.as_view(),
         name='blogpost-detail'),
+    url(r'^update/(?P<pk>\d+)/$', BlogPostUpdateView.as_view(),
+        name="blogpost-update"),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 
     # url(r'^blogposts/', BlogHomeListView.as_view(), name='blogpost-list'),
     # url(r'^create/$', BlogPostCreateView.as_view(), name="blogpost-create"),
-    # url(r'^update/(?P<pk>\d+)/$', BlogPostUpdateView.as_view(),
-    # name="blogpost-update"),
+
     # url(r'^delete/(?P<pk>\d+)/$', BlogPostDeleteView.as_view(),
     # name="blogpost-delete"),
 

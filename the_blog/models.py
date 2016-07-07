@@ -1,14 +1,14 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=120)
-    content = RichTextField()
+    content = RichTextUploadingField()
     author = models.ForeignKey(User, default=1)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)

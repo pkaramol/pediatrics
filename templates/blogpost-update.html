@@ -1,11 +1,26 @@
-<h1>Update "{{blogpost.title}}""</h1>
-<form method="post">
-  <div>
-    {% csrf_token %}
-    {{ form.as_p }}
-  </div>
-  <div>
-    <a href="{{ blogpost.get_absolute_url }}">Cancel</a>
-    <input class="btn" type="submit" value="Update" />
-  </div>
-</form>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+
+<div class="row">
+    <div id=create-box class="box">
+        <div class="col-lg-12">
+            <hr />
+            <h1 class="intro-text text-center center-block">Επεξεργασια Αρθρου <strong><u>"{{blogpost.title}}"</u></strong></h1>
+            <hr>
+            <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                {{ form.media }}
+                {{ form | crispy }}
+                <a href="{{ blogpost.get_absolute_url }}">Cancel</a>
+                <input class="btn btn-default intro-text text-center center-block" type="submit" value="Create" />
+            </form>
+            <hr>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -9,6 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="box">
+                {% if request.user.is_superuser %}
                 <div class="col-lg-12">
                     <hr>
                     <form action="{% url 'blogpost-create' %}">
@@ -16,6 +17,7 @@
                     </form>
                     <hr>
                 </div>
+                {% endif %}
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center">
@@ -32,6 +34,15 @@
                     <div class="text-justified"> {{ blogpost.content|safe}} </div>
                     <hr>
                 </div>
+                {% if request.user.is_superuser %}
+                <div class="col-lg-12">
+                    <hr>
+                    <form action="{% url 'blogpost-update' blogpost.id %}">
+                        <input type="submit" class="intro-text text-center btn btn-default center-block" value="Επεξεργασια Αρθρου">
+                    </form>
+                    <hr>
+                </div>
+                {% endif %}
             </div>
         </div>
 

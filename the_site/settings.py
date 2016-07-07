@@ -109,18 +109,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+############################ Static Files' Settings ###########################
+
 STATIC_URL = '/static/'
-
-MEDIA_URL = '/media/'
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
+
+############################ Media Files' Settings ############################
+
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
-CKEDITOR_UPLOAD_PATH = os.path.join(BASE_DIR, 'ckeditor_media')
+
+############################## CKEditor Settings ##############################
+
+CKEDITOR_UPLOAD_PATH = os.path.join(BASE_DIR, MEDIA_ROOT, 'ckeditor_media')
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+
+################################ Other Settings ###############################
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
-
-CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'

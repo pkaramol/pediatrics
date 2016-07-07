@@ -43,12 +43,11 @@ class BlogPostDetailView(DetailView):
     model = BlogPost
 
 
-# class BlogPostUpdateView(UpdateView):
-#     template_name = "blogpost-update.html"
-#     model = BlogPost
-#     form_class = BlogPostForm
-#
-#
+class BlogPostUpdateView(SuperuserRequiredMixin, UpdateView):
+    template_name = "blogpost-update.html"
+    model = BlogPost
+    form_class = BlogPostForm
+
 # class BlogPostDeleteView(DeleteView):
 #     model = BlogPost
 #     success_url = reverse_lazy('site-home')
