@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+
+<div class="row">
+    <div id=create-box class="box">
+        <div class="col-lg-12">
+            <hr />
+            <h1 class="intro-text text-center center-block">Επιβεβαιωση Διαγραφης Αρθρου</h1>
+            <hr>
+            <br />
+            <br />
+            <div class="intro-text text-center center-block"><strong>Ειστε σιγουροι οτι θελετε να διαγραψετε το αρθρο με τιτλο: "{{ blogpost.title }}"?</strong></div>
+            <br />
+            <br />
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div id=create-box class="box">
+        <div class="col-lg-6">
+            <form method="post">{% csrf_token %}
+                <input class="btn btn-danger btn-lg intro-text text-center center-block" type="submit" value="Διαγραφη" />
+            </form>
+        </div>
+        <div class="col-lg-6">
+            <form method="GET" action="{% url 'blogpost-detail' blogpost.id %}">{% csrf_token %}
+                <input class="btn btn-success btn-lg intro-text text-center center-block" type="submit" value="Ακυρωση" />
+            </form>
+        </div>
+        <hr>
+    </div>
+</div>
+
+
+{% endblock content %}
