@@ -1,6 +1,7 @@
 from django.core.urlresolvers import reverse_lazy
+from django.shortcuts import render
 from django.views.generic import (TemplateView, DetailView, ListView,
-                                  CreateView, UpdateView, DeleteView)
+CreateView, UpdateView, DeleteView)
 
 from braces.views import SuperuserRequiredMixin
 
@@ -8,28 +9,28 @@ from the_blog.models import BlogPost
 
 from the_blog.forms import BlogPostForm
 
+from django.shortcuts import render_to_response
+from django.template import RequestContext
 
-class HomeView(SuperuserRequiredMixin, TemplateView):
+
+class HomeView(TemplateView):
     template_name = "home.html"
     # model = BlogPost
 
-
-class AboutView(SuperuserRequiredMixin, TemplateView):
+class AboutView(TemplateView):
     template_name = "about.html"
 
 
-class BlogListView(SuperuserRequiredMixin, ListView):
+class BlogListView(ListView):
     template_name = "blog.html"
     model = BlogPost
     paginate_by = 4
     ordering = ["-created", "-updated"]
 
-
-class ContactView(SuperuserRequiredMixin, TemplateView):
+class ContactView(TemplateView):
     template_name = "contact.html"
 
 
-# Requires SuperuserRequiredMixin
 class BlogPostCreateView(SuperuserRequiredMixin, CreateView):
     template_name = "blogpost-create.html"
     form_class = BlogPostForm
@@ -42,20 +43,18 @@ class BlogPostCreateView(SuperuserRequiredMixin, CreateView):
         return super(BlogPostCreateView, self).form_valid(form)
 
 
-class BlogPostDetailView(SuperuserRequiredMixin, DetailView):
+class BlogPostDetailView(DetailView):
     template_name = "blogpost-detail.html"
     model = BlogPost
 
 
-# Requires SuperuserRequiredMixin
 class BlogPostUpdateView(SuperuserRequiredMixin, UpdateView):
     template_name = "blogpost-update.html"
     model = BlogPost
     form_class = BlogPostForm
 
 
-# Requires SuperuserRequiredMixin
-class BlogPostDeleteView(SuperuserRequiredMixin, DeleteView):
+class BlogPostDeleteView(DeleteView):
     template_name = "blogpost_confirm_delete.html"
     model = BlogPost
     success_url = reverse_lazy('site-home')
