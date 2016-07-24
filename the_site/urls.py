@@ -19,7 +19,9 @@ from django.contrib import admin
 
 from .views import (HomeView, AboutView, BlogListView, BlogPostCreateView,
                     ContactView, BlogPostDetailView, BlogPostUpdateView,
-                    BlogPostDeleteView, Template404View)
+                    BlogPostDeleteView,
+                    #Template404View
+                    )
 
 # handler404 = 'Template404View.as_view()'
 
