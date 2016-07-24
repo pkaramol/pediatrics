@@ -9,6 +9,9 @@ from the_blog.models import BlogPost
 
 from the_blog.forms import BlogPostForm
 
+from django.shortcuts import render_to_response
+from django.template import RequestContext
+
 
 class HomeView(TemplateView):
     template_name = "home.html"
@@ -55,3 +58,12 @@ class BlogPostDeleteView(DeleteView):
     template_name = "blogpost_confirm_delete.html"
     model = BlogPost
     success_url = reverse_lazy('site-home')
+
+# class Template404View(TemplateView):
+#     template_name = "404.html"
+#
+# def handler404(request):
+#     response = render_to_response('404.html', {},
+#                                   context_instance=RequestContext(request))
+#     response.status_code = 404
+#     return response

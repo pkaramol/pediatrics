@@ -19,8 +19,9 @@ from django.contrib import admin
 
 from .views import (HomeView, AboutView, BlogListView, BlogPostCreateView,
                     ContactView, BlogPostDetailView, BlogPostUpdateView,
-                    BlogPostDeleteView)
+                    BlogPostDeleteView, Template404View)
 
+# handler404 = 'Template404View.as_view()'
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
