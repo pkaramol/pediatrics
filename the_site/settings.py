@@ -132,3 +132,4 @@ CKEDITOR_IMAGE_BACKEND = 'pillow'
 ################################ Other Settings ###############################
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
