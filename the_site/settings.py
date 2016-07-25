@@ -25,7 +25,7 @@ SECRET_KEY = 'c!o-sa^)3plq3&jovau)_w7k)8y9ort&&kf8@g8m1s9+n(1jdi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '111.222.333.444', 'mywebsite.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://pediatrics.herokuapp.com/']
 
 # Application definition
 
@@ -81,10 +81,10 @@ DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.mysql',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'annaplevri_db',
+        'NAME': 'd6dgde2i8c4rq',
         'USER': 'django-user',
-        'PASSWORD': 'testpass',
-        'HOST': 'localhost',
+        'PASSWORD': os.getenv('dbpass', 'testpass'),
+        'HOST': 'ec2-54-221-225-43.compute-1.amazonaws.com',
         'PORT': '5432',
         # 'OPTIONS': {
         #   'autocommit': True,
