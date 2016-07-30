@@ -134,7 +134,7 @@ AWS_STORAGE_BUCKET_NAME = 'pediatrics'
 S3_URL = 'http://{}.s3.amazonaws.com/'.format(AWS_STORAGE_BUCKET_NAME)
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto.S3BotoStorage"
 
-MEDIA_URL = 'http://%s.s3.amazonaws.com/your-folder/' % AWS_STORAGE_BUCKET_NAME
+MEDIA_URL = 'http://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
 
 ############################## CKEditor Settings ##############################
 
